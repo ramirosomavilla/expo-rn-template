@@ -1,9 +1,11 @@
 import { Card, CardContent, CardHeader } from "@/components/Card";
 import { ToggleThemeButton } from "@/components/ToggleThemeButton";
 import { useTheme } from "@/hooks/useTheme";
+import { useTheme as useThemeContext } from "@/contexts/ThemeContext";
 import { routes } from "@/lib/routes";
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   ScrollView,
@@ -16,8 +18,10 @@ import {
 
 const HomeScreen = () => {
   const { colors } = useTheme();
+  const { theme } = useThemeContext();
   return (
     <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <StatusBar style={theme.dark ? "light" : "dark"} />
       <SafeAreaView
         style={{
           backgroundColor: colors.background,
