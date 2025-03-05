@@ -14,7 +14,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ramirosomavilla.expo-rn-template"
     },
     "android": {
       "adaptiveIcon": {
@@ -22,9 +23,20 @@
         "backgroundColor": "#ffffff"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "experiments": {
+      "typedRoutes": true
     },
-    "plugins": ["expo-router"]
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "output": "server"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "http://localhost:8082/"
+        }
+      ]
+    ]
   }
 }
